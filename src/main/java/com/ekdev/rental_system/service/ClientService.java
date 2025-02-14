@@ -30,6 +30,9 @@ public class ClientService {
     }
 
     public Client createClient(ClientDtoRequest clientDtoRequest) {
+        if(clientRepository.findByEmail(clientDtoRequest.email()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Client already exists");
+        }
         Client client = new Client();
         client.setEmail(clientDtoRequest.email());
         client.setFirstName(clientDtoRequest.firstName());
