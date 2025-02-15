@@ -1,7 +1,9 @@
 package com.ekdev.rental_system.dto;
 
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
@@ -9,7 +11,7 @@ import java.math.BigDecimal;
 public record CottageDtoRequest(
         @NotBlank String number,
         @NotBlank String description,
-        @NotBlank BigDecimal pricePerNight,
+        @NotNull @DecimalMin(value = "0.0", inclusive = false) BigDecimal pricePerNight,
         @NotBlank String capacity
 ) {
 }
