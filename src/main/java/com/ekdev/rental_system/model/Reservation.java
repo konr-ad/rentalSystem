@@ -13,12 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "reservations")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Reservation {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
-    Long id;
+public class Reservation extends BaseEntity {
 
     @Column(nullable = false)
     private LocalDate startDate;

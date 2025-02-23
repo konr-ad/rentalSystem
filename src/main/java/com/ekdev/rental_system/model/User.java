@@ -15,12 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
-    private Long id;
+public class User extends BaseEntity{
 
     @Column(nullable = false, unique = true)
     private String email;
