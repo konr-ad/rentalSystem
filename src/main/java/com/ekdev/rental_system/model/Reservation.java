@@ -24,10 +24,6 @@ public class Reservation extends BaseEntity {
     @Setter(AccessLevel.NONE)
     private LocalDateTime createdAt;
 
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
-    }
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)

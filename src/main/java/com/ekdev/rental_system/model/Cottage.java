@@ -30,20 +30,8 @@ public class Cottage extends BaseEntity {
     @Column(nullable = false)
     private String capacity;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
     @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Reservation> reservations;
 
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }
